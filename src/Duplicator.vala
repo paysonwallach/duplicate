@@ -21,7 +21,7 @@ namespace Duplicate {
                 var dest_file = File.new_for_path (dest_file_path);
 
                 try {
-                    file.copy (dest_file, FileCopyFlags.NONE);
+                    file.copy (dest_file, FileCopyFlags.NOFOLLOW_SYMLINKS);
                 } catch (Error err) {
                     error (err.message);
                 }
