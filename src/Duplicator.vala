@@ -12,9 +12,12 @@ namespace Duplicate {
                     error (err.message);
                 }
 
-                name = name.concat (" (copy)");
+                string[] name_split = name.split(".");
 
-                var dest_file_path = GLib.Path.build_path (GLib.Path.get_dirname (file), name);
+                name_split[0] = name_split[0].concat (" (copy)");
+                name = string.joinv(".", name_split);
+
+                var dest_file_path = GLib.Path.build_path (file.get_parent ().get_path (), name);
                 var dest_file = File.new_for_path (dest_file_path);
 
                 try {
