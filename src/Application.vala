@@ -3,7 +3,7 @@ namespace Duplicate {
         private Duplicator duplicator;
 
         public Application () {
-            application_id = "com.paysonwallach.duplicate"; //Constants.application_id;
+            application_id = "com.paysonwallach.duplicate";
             flags |= GLib.ApplicationFlags.HANDLES_OPEN;
         }
 
