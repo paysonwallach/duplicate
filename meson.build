@@ -1,4 +1,5 @@
-project('Duplicate', 'vala', 'c', version: '0.2.0')
+project('com.paysonwallach.duplicate', 'vala', 'c', version: '0.3.0')
+
 i18n = import('i18n')
 
 add_project_arguments(
