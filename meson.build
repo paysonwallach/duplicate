@@ -18,6 +18,7 @@ executable(
   install: true
 )
 
+# contractor
 subdir('data')
 
 # gettext translations
