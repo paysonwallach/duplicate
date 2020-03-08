@@ -1,0 +1,5 @@
+[Contractor Entry]
+Name=Duplicate item
+Description=Create a duplicate of the currently selected items
+MimeType=application/octet-stream;
+Exec=@exec_name@ %U
