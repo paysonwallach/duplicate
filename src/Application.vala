@@ -11,8 +11,8 @@ namespace Duplicate {
     public class Application : Gtk.Application {
         private Duplicator duplicator;
 
-        public Application () {
-            application_id = "com.paysonwallach.duplicate";
+        construct {
+            application_id = APP_ID;
             flags |= GLib.ApplicationFlags.HANDLES_OPEN;
         }
 
