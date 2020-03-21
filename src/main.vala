@@ -1,6 +1,3 @@
-namespace Duplicate {
-    public static int main (string[] args) {
-        var application = new Application ();
 /*
  * Duplicate
  *
@@ -10,6 +7,8 @@ namespace Duplicate {
  * (https://gnu.org/licenses/gpl.html)
  */
 
-        return application.run (args);
-    }
+public static int main (string[] args) {
+    var application = new Duplicate.Application ();
+
+    return application.run (args);
 }
