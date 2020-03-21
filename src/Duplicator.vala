@@ -1,3 +1,12 @@
+/*
+ * Duplicate
+ *
+ * Copyright (c) 2019 Payson Wallach
+ *
+ * Released under the terms of the GNU General Public License, version 3
+ * (https://gnu.org/licenses/gpl.html)
+ */
+
 namespace Duplicate {
     public class Duplicator {
 
