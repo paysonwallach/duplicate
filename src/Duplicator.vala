@@ -66,14 +66,14 @@ namespace Duplicate {
             return builder.str;
         }
 
-        private GLib.File get_destination_file(
-            GLib.File source,
+        private File get_destination_file(
+            File source,
             string filename,
-            GLib.Regex filename_regex,
+            Regex filename_regex,
             Generation generation)
         {
             var iteration = 1;
-            GLib.File? destination_file = null;
+            File? destination_file = null;
             string[] name_split = filename.split(".");
 
             do {
@@ -88,9 +88,9 @@ namespace Duplicate {
                 }
 
                 var destination_filename = string.joinv (".", name_split);
-                var dest_file_path = GLib.Path.build_path (source.get_parent ().get_path (), destination_filename);
+                var dest_file_path = Path.build_path (source.get_parent ().get_path (), destination_filename);
 
-                destination_file = GLib.File.new_for_path (dest_file_path);
+                destination_file = File.new_for_path (dest_file_path);
             } while (destination_file.query_exists ());
 
             return destination_file;
@@ -103,12 +103,12 @@ namespace Duplicate {
             dialog.destroy ();
         }
 
-        public int duplicate (GLib.File[] files) {
+        public int duplicate (File[] files) {
             foreach (var file in files) {
                 string name = "";
 
                 try {
-                    FileInfo file_info = file.query_info (GLib.FileAttribute.STANDARD_NAME, GLib.FileQueryInfoFlags.NONE);
+                    FileInfo file_info = file.query_info (FileAttribute.STANDARD_NAME, FileQueryInfoFlags.NONE);
 
                     name = file_info.get_name ();
                 } catch (Error err) {
@@ -117,10 +117,10 @@ namespace Duplicate {
                     return 1;
                 }
 
-                GLib.Regex filename_regex = new GLib.Regex ("((?:(?:\\d+)(\\-))+)*(\\s)*(\\d*)(\\))$");
-                GLib.MatchInfo match_info;
+                Regex filename_regex = new Regex ("((?:(?:\\d+)(\\-))+)*(\\s)*(\\d*)(\\))$");
+                MatchInfo match_info;
 
-                var match = filename_regex.match(name, GLib.RegexMatchFlags.NOTEMPTY, out match_info);
+                var match = filename_regex.match(name, RegexMatchFlags.NOTEMPTY, out match_info);
                 var generation = Generation.PARENT;
 
                 if (match) {
